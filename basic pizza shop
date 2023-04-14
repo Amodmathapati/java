@@ -1,0 +1,112 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+class pizza{
+    private int price;
+    protected boolean veg;
+    private int ExtraCheese = 100;
+    private int ExtraToppings  = 150;
+    private int  takeAwayCharges = 20;
+    private int basePizzaPrice = 0;
+    private boolean extraToppings = false;
+    private boolean extraCheese = false;
+    private boolean takeAway = false;
+    
+    
+    public pizza(boolean veg){
+        this.veg = veg;
+        if(this.veg){
+            price = 300; //price of veg pizza.
+        }
+        else{
+            price = 400;
+        }
+        
+        basePizzaPrice = price;
+        
+    }
+
+    
+    void getPizzaPrize(){
+        System.out.println(price);
+        System.out.println(" ");
+
+    }
+    
+    void addExtraCheese(){
+        price += ExtraCheese;
+        extraCheese = true;
+        System.out.println("extraa cheese added...");
+        // getBill();
+    }
+
+    void addExtraToppings(){
+        price += ExtraToppings;
+        extraToppings = true;
+        System.out.println(" extraa topppings added...");
+        System.out.println(" ");
+
+        // getBill();
+    }
+
+    void takeAway(){
+        price += takeAwayCharges;
+        takeAway = true;
+        System.out.println("takeaway added ");
+        // getBill();
+    }    
+
+    void getBill(){
+          
+      System.out.println("basePizzaPrice:" + basePizzaPrice+"\n");
+      if(extraCheese){
+          System.out.println("extraCheese:" + ExtraCheese+"\n");
+      }
+      if(extraToppings){
+          System.out.println("ExtraToppings:" + ExtraToppings+"\n");
+      }
+      if(takeAway){
+          System.out.println("takeAway:" + takeAwayCharges+"\n");
+      }
+    System.out.println("totalBill:" + price+"\n");
+
+      }
+    
+     
+}
+
+class deluxePizza extends pizza{
+    
+    public deluxePizza(boolean veg){
+        super(veg);
+        super.addExtraCheese();
+        super.addExtraToppings();
+    }
+    
+    void addExtraCheese(){
+    }
+    void addExtraToppings(){
+    }
+    
+    
+}
+
+class Main{
+    public static void main(String[] args) {
+        // pizza basePizzza = new pizza(true);
+        // basePizzza.getPizzaPrize();
+        // basePizzza.addExtraCheese();
+        // basePizzza.addExtraToppings();
+        // basePizzza.takeAway();
+        // basePizzza.getBill();
+        deluxePizza dp = new deluxePizza(false);
+        dp.addExtraCheese();
+        dp.getBill();
+       
+        
+        
+        
+
+        
+        
+    }
+}
