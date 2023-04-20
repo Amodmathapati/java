@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    String userInput;
+	    System.out.println("Enter your sentence");
+	    Scanner scan = new Scanner(System.in);
+	    userInput = scan.nextLine();
+	    scan.close();
+	    
+	    userInput = userInput.toLowerCase();
+	    userInput = userInput.replaceAll("\\s", "");
+
+        
+        //  System.out.println(userInput);
+
+	   int[] counter=new int[26];
+	   //counter.fill(counter, 0);
+	   
+	   int pos=-1;
+
+	   for (char i = 'a';i<='z' ;i++){
+	       pos++;
+	       for(int j=0;j<userInput.length();j++){
+	           if(userInput.charAt(j)==i){
+	               counter[pos]++;
+	           }
+	       }
+	   }
+	   pos = 0;
+	   for(char i='a';i<='z';i++){
+	       System.out.println(i+": "+counter[pos]);
+	       pos++;
+	   }
+
+	    
+	    
+	}
+}
